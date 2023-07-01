@@ -1,11 +1,17 @@
 import React, { useEffect } from "react";
 import { IconButton } from "../components/IconButton";
-import { TbPlugConnected } from "react-icons/tb";
+import { PiPlugsConnectedBold, PiPlugsBold } from "react-icons/pi";
 import { useMoralis } from "react-moralis";
 
 export const ConnectWalletButton = () => {
-  const { enableWeb3, Moralis, isWeb3EnableLoading, deactivateWeb3 } =
-    useMoralis();
+  const {
+    enableWeb3,
+    isWeb3Enabled,
+    account,
+    Moralis,
+    isWeb3EnableLoading,
+    deactivateWeb3,
+  } = useMoralis();
 
   const connectWallet = async () => {
     try {
@@ -38,8 +44,17 @@ export const ConnectWalletButton = () => {
   }, [enableWeb3]);
 
   return (
-    <IconButton loading={isWeb3EnableLoading} onClick={connectWallet}>
-      <TbPlugConnected size={24} className="text-red-500" />
-    </IconButton>
+    <>
+      {isWeb3Enabled && account ? (
+        <div className="flex items-center justify-between gap-2 px-2 rounded-full text-sm">
+          <span>{`${account.slice(0, 10)}...${account.slice(-6)}`}</span>
+          <PiPlugsConnectedBold size={24} className="text-green-500" />
+        </div>
+      ) : (
+        <IconButton loading={isWeb3EnableLoading} onClick={connectWallet}>
+          <PiPlugsBold size={24} className="text-red-500" />
+        </IconButton>
+      )}
+    </>
   );
 };

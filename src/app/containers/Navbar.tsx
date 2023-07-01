@@ -11,9 +11,6 @@ export const Navbar = () => {
       </Link>
       <ul className="flex gap-4">
         <li>
-          <Link href={"/"}>Purchase</Link>
-        </li>
-        <li>
           <Link href={"/"}>Sell</Link>
         </li>
       </ul>
