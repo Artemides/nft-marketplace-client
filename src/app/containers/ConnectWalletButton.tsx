@@ -4,7 +4,8 @@ import { TbPlugConnected } from "react-icons/tb";
 import { useMoralis } from "react-moralis";
 
 export const ConnectWalletButton = () => {
-  const { enableWeb3, Moralis, deactivateWeb3 } = useMoralis();
+  const { enableWeb3, Moralis, isWeb3EnableLoading, deactivateWeb3 } =
+    useMoralis();
 
   const connectWallet = async () => {
     try {
@@ -28,15 +29,16 @@ export const ConnectWalletButton = () => {
   useEffect(() => {
     const reconnect = async () => {
       const connect = localStorage.getItem("connect");
-      if (connect) return;
+      console.log({ connect });
+      if (!connect) return;
 
       await enableWeb3();
     };
     reconnect();
-  });
+  }, [enableWeb3]);
 
   return (
-    <IconButton loading>
+    <IconButton loading={isWeb3EnableLoading} onClick={connectWallet}>
       <TbPlugConnected size={24} className="text-red-500" />
     </IconButton>
   );
