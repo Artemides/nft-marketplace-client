@@ -5,6 +5,8 @@ import "./globals.css";
 import { Titillium_Web } from "next/font/google";
 import { Navbar } from "./containers/Navbar";
 
+const APP_ID = process.env.NEXT_PUBLIC_APP_ID || "";
+
 const inter = Titillium_Web({
   subsets: ["latin"],
   weight: ["200", "300", "400", "600", "700", "900"],

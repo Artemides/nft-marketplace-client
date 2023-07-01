@@ -1,7 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { TbPlugConnected } from "react-icons/tb";
-import { IconButton } from "../components/IconButton";
 import { ConnectWalletButton } from "./ConnectWalletButton";
 export const Navbar = () => {
   return (
