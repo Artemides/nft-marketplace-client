@@ -25,12 +25,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MoralisProvider initializeOnMount={false}>
-          <>
-            <Navbar />
-            {children}
-          </>
-        </MoralisProvider>
+        <Navbar />
+        {children}
       </body>
     </html>
   );

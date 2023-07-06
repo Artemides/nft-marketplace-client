@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { IconButton } from "../components/IconButton";
 import { PiPlugsConnectedBold, PiPlugsBold } from "react-icons/pi";
 import { useMoralis } from "react-moralis";
-
+import { MoralisNextAuthProvider } from "@moralisweb3/next";
 export const ConnectWalletButton = () => {
   const {
     enableWeb3,
