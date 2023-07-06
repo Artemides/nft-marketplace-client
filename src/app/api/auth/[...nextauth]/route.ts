@@ -1,3 +1,5 @@
+"use client";
+
 import { MoralisNextAuthProvider } from "@moralisweb3/next";
 import NextAuth from "next-auth/next";
 

@@ -6,6 +6,7 @@ import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 export const ConnectWalletButton = () => {
   const { connectAsync, isLoading } = useConnect();
   const [account, setAccount] = useState<string | null>(null);
+
   const connectWallet = async () => {
     const { account } = await connectAsync({
       connector: new MetaMaskConnector(),
