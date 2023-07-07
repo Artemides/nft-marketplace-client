@@ -1,6 +1,6 @@
 import { MoralisNextApi } from "@moralisweb3/next";
 
-export default MoralisNextApi({
+const handler = MoralisNextApi({
   apiKey: process.env.NEXT_PUBLIC_API_KEY || "",
   authentication: {
     domain: "nft-markeplace",
@@ -8,3 +8,4 @@ export default MoralisNextApi({
     timeout: 120,
   },
 });
+export { handler as GET, handler as POST };

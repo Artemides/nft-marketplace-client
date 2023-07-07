@@ -1,9 +1,7 @@
-"use client";
-
 import { MoralisNextAuthProvider } from "@moralisweb3/next";
 import NextAuth from "next-auth/next";
 
-export default NextAuth({
+const handler = NextAuth({
   providers: [MoralisNextAuthProvider()],
 
   callbacks: {
@@ -18,3 +16,5 @@ export default NextAuth({
     },
   },
 });
+
+export { handler as GET, handler as POST };
